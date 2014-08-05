@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script>
+
+            function showAlertText()
+            {
+                var xmlhttp;
+                if (window.XMLHttpRequest)
+                {// code for IE7+, Firefox, Chrome, Opera, Safari
+                    xmlhttp = new XMLHttpRequest();
+                }
+                else
+                {// code for IE6, IE5
+                    xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+                }
+                xmlhttp.onreadystatechange = function()
+                {
+                    if (xmlhttp.readyState == 4 && xmlhttp.status == 200)
+                    {
+                        //document.getElementById("myDiv").innerHTML = xmlhttp.responseText;
+                        //alert(xmlhttp.responseText);
+						var json = xmlhttp.responseText,
+						obj = JSON.parse(json);
+						//console.typeof(json);
+						//alert(obj.countries[0].country.country_name);
+						
+						/*var div3Content = '';
+						for(var i=0;i< obj.countries.length; i++){												
+							div3Content += '<p>'+obj.countries[i].country.country_name+'</p>';
+						}
+						//alert(div3Content);
+						document.getElementsByTagName('BODY')[0].innerHTML = div3Content;
+						*/
+						
+						var div3Content = '';
+						div3Content += '<select>';
+						for(var i=0;i< obj.countries.length; i++){												
+							
+							div3Content += "<option value= " + obj.countries[i].country.country_id+ ">"+obj.countries[i].country.country_name+"</option>";																				
+									
+						}
+						div3Content += '</select>';												
+						document.getElementsByTagName('BODY')[0].innerHTML = div3Content;
+						
+					}
+					
+                }
+                xmlhttp.open("GET", "ajax.txt", true);
+                xmlhttp.send();
+       
+			}
+
+
+           
+
+        </script>
+    </head>
+    <body>
+
+        <h2>AJAX</h2>
+		<!--<div id="myDiv"></div>-->
+        <button type="button" onclick="showAlertText()">Show Alert Text</button>
+        
+
+    </body>
+</html>
+
+
