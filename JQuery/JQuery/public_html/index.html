@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html><head>
+        <title>jQuery HeatMap</title>
+		
+
+		<style>
+		*{
+			margin:0;
+			padding:0;
+		}
+		body{
+			background:#fff url(bg.png) repeat top left;
+			font-family:arial;
+		}
+		.title{
+			background:transparent url(heatMap.png) no-repeat top left;
+			width:461px;
+			height:136px;
+			
+		}
+		.analyze{
+			background-color: #2474c1;
+			border:2px solid #fff;
+			color:#fff;
+			font-size:12px;
+			cursor:pointer;
+			padding:5px 15px;
+			margin:10px;
+			-moz-border-radius:20px;
+			-webkit-border-radius:20px;
+			border-radius:20px;
+			font-weight:bold;
+		}
+		.back{
+			position:absolute;
+			top:400px;
+			left:20px;
+			background:transparent url(back.png) no-repeat top left;
+			width:165px;
+			height:31px;
+		}
+		</style>
+    </head>
+    <body>
+		<div class="title"></div>	
+		<span style="position:absolute" class="analyze" id="analyze">Analyze</span>
+		<div class="overlay" id="overlay" style="display: none;"></div>
+        <script type="text/javascript" src="jquery.min.js"></script>
+        <script>
+			$(function() {
+				$(document).bind({
+					'click'	: function(event){
+						var $target = $(event.target);
+						if($target.hasClass('analyze')||$target.hasClass('overlay')) return;
+
+						$('BODY').append($('<div/>', {
+								css: {
+									left			: event.pageX-10,
+									top				: event.pageY-10,
+									display			: 'none'
+								},
+								className			: 'dot',
+                                                        click				: function(e){
+									$('#overlay').fadeOut();
+									$('.dot').fadeOut();
+								}
+						}));
+					}
+				});
+				$('#analyze').bind({
+					'click'	: function(event){
+						$('#overlay').fadeIn();
+						$('.dot').fadeIn();
+					}
+				});
+				$('#overlay').bind({
+					'click'	: function(event){
+						$('#overlay').fadeOut();
+						$('.dot').fadeOut();
+					}
+				});
+			});
+        </script>
+		<script src="jQuery%20HeatMap_files/demoad.js"></script>
+    
+<div class="dot" style="left: 548px; top: 206px; display: none;"></div><div class="dot" style="left: 883px; top: 254px; display: none;"></div><div class="dot" style="left: 881px; top: 189px; display: none;"></div><div class="dot" style="left: 761px; top: 156px; display: none;"></div><div class="dot" style="left: 634px; top: 79px; display: none;"></div><div class="dot" style="left: 299px; top: 64px; display: none;"></div><div class="dot" style="left: 242px; top: 46px; display: none;"></div><div class="dot" style="left: 140px; top: 91px; display: none;"></div><div class="dot" style="left: 298px; top: 87px; display: none;"></div><div class="dot" style="left: 210px; top: 518px; display: none;"></div><div class="dot" style="left: 136px; top: 409px; display: none;"></div><div class="dot" style="left: 686px; top: 58px; display: none;"></div><div class="dot" style="left: 734px; top: -10px; display: none;"></div><div class="dot" style="left: 708px; top: 40px; display: none;"></div><div class="dot" style="left: 880px; top: 188px; display: none;"></div><div class="dot" style="left: 779px; top: 295px; display: none;"></div><div class="dot" style="left: 976px; top: 175px; display: none;"></div><div class="dot" style="left: 562px; top: 70px; display: none;"></div><div class="dot" style="left: 402px; top: 344px; display: none;"></div><div class="dot" style="left: 302px; top: 473px; display: none;"></div><div class="dot" style="left: 436px; top: 332px; display: none;"></div><div class="dot" style="left: 605px; top: 290px; display: none;"></div><div class="dot" style="left: 878px; top: 260px; display: none;"></div><div class="dot" style="left: 862px; top: 452px; display: none;"></div><div class="dot" style="left: 581px; top: 442px; display: none;"></div><div class="dot" style="left: 547px; top: 350px; display: none;"></div><div class="dot" style="left: 543px; top: 202px; display: none;"></div><div class="dot" style="left: 577px; top: 142px; display: none;"></div><div class="dot" style="left: 669px; top: 124px; display: none;"></div><div class="dot" style="left: 683px; top: 210px; display: none;"></div><div class="dot" style="left: 362px; top: 282px; display: none;"></div><div class="dot" style="left: 590px; top: 506px; display: none;"></div><div class="dot" style="left: 752px; top: 462px; display: none;"></div><div class="dot" style="left: 947px; top: 165px; display: none;"></div><div class="dot" style="left: 700px; top: 118px; display: none;"></div><div class="dot" style="left: 250px; top: 228px; display: none;"></div><div class="dot" style="left: 250px; top: 228px; display: none;"></div><div class="dot" style="left: 660px; top: 192px; display: none;"></div><div class="dot" style="left: 658px; top: 199px; display: none;"></div><div class="dot" style="left: 573px; top: 305px; display: none;"></div><div class="dot" style="left: 468px; top: 253px; display: none;"></div><div class="dot" style="left: 465px; top: 234px; display: none;"></div><div class="dot" style="left: 345px; top: 196px; display: none;"></div><div class="dot" style="left: 885px; top: 50px; display: none;"></div><div class="dot" style="left: 906px; top: 190px; display: none;"></div><div class="dot" style="left: 479px; top: 313px; display: none;"></div><div class="dot" style="left: 308px; top: 288px; display: none;"></div><div class="dot" style="left: 119px; top: 287px; display: none;"></div><div class="dot" style="left: 48px; top: 230px; display: none;"></div><div class="dot" style="left: 390px; top: 170px; display: none;"></div><div class="dot" style="left: 390px; top: 170px; display: none;"></div><div class="dot" style="left: 390px; top: 170px; display: none;"></div><div class="dot" style="left: 195px; top: 292px; display: none;"></div></body></html>
