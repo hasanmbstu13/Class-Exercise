@@ -8,17 +8,17 @@
 
 <body>
 <div>
-    <form method="post" action="assaign1.php">
+    <form method="post" action="send_data_from_dropdown_to_database.php">
         Student Name:
         <select>
             <?php
             $connect = mysql_connect('localhost','root','');
             $db = mysql_select_db('students',$connect);
-            $query = "select name from students_tbl";
+            $query = "select id,name from students_tbl";
             $result = mysql_query($query);
                 while($row = mysql_fetch_array($result))
                 {
-                    echo "<option value=".$row['name'].">".$row['name']."</option>";
+                    echo "<option value=".$row['id'].">".$row['name']."</option>";
                 }
 
             ?>
@@ -30,11 +30,11 @@
             <?php
             $connect = mysql_connect('localhost','root','');
             $db = mysql_select_db('students',$connect);
-            $query = "select title from courses_tbl";
+            $query = "select id,title from courses_tbl";
             $result = mysql_query($query);
             while($row = mysql_fetch_array($result))
             {
-                echo "<option value=".$row['name'].">".$row['title']."</option>";
+                echo "<option value=".$row['id'].">".$row['title']."</option>";
             }
 
             ?>
